@@ -50,18 +50,18 @@ public class DriveCode extends LinearOpMode {
         if (gamepad1.dpad_up) {
             armMotor.setPower(-0.4);
         }
-        if (!gamepad1.dpad_up) {
+        else {
             armMotor.setPower(0);
         }
         if(gamepad1.right_bumper) {
-            armRaise.setPower(1);
+            armRaise.setPower(.3);
+        } else if (gamepad1.left_bumper) {
+            armRaise.setPower(-.3);
         }
-        if (gamepad1.left_bumper) {
-            armRaise.setPower(-1);
-        }
-        if (!gamepad1.left_bumper || !gamepad1.right_bumper) {
+        else {
             armRaise.setPower(0);
         }
+
         if (gamepad1.b) {
             servoOne.setPosition(.5);
             servoTwo.setPosition(.7);
